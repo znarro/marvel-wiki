@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { SimpleGrid } from "@chakra-ui/react";
 import axios from "axios";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -23,7 +24,7 @@ const Home = () => {
     <div>
       <Header />
       <h1>Heroes</h1>
-      <div>
+      <SimpleGrid minChildWidth="120px" spacing="40px">
         {characters.map((character) => (
           <Card
             key={character.id}
@@ -35,7 +36,7 @@ const Home = () => {
             }
           />
         ))}
-      </div>
+      </SimpleGrid>
       <Footer />
     </div>
   );
