@@ -27,17 +27,23 @@ const Home = () => {
         Heroes
       </Heading>
       <SimpleGrid minChildWidth="200px" spacing="40px" p="20">
-        {characters.map((character) => (
-          <Card
-            key={character.id}
-            name={character.name}
-            image={
-              character.thumbnail.path +
-              "/portrait_incredible." +
-              character.thumbnail.extension
-            }
-          />
-        ))}
+        {characters
+          .filter(
+            (item) =>
+              item.thumbnail.path !==
+              "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
+          )
+          .map((character) => (
+            <Card
+              key={character.id}
+              name={character.name}
+              image={
+                character.thumbnail.path +
+                "/portrait_incredible." +
+                character.thumbnail.extension
+              }
+            />
+          ))}
       </SimpleGrid>
       <Footer />
     </div>
