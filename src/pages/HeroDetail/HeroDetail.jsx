@@ -12,6 +12,8 @@ const HeroDetail = () => {
   const [comics, setComics] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     async function getComics() {
       const BASE_URL = "https://gateway.marvel.com/v1/public/";
       const API_KEY = "fadc172f68445faee5eaabcc6a9d88d2";
