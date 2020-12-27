@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Flex, Center, Input } from "@chakra-ui/react";
-import { HeroContext } from "../contexts/HeroContext";
+import { QueryContext } from "../contexts/QueryContext";
 
 const Search = () => {
-  const [query, setQuery] = useContext(HeroContext);
+  const [query, setQuery] = useContext(QueryContext);
   const handleChange = (event) => setQuery(event.target.value);
 
   return (
