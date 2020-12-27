@@ -1,13 +1,23 @@
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home/Home";
-import Header from "./components/Header";
+import HeroDetail from "./pages/HeroDetail/HeroDetail";
 
 function App() {
   return (
     <>
       <Header />
-      <Home />
+
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/:id" children={<HeroDetail />} />
+        </Switch>
+      </Router>
+
       <Footer />
     </>
   );

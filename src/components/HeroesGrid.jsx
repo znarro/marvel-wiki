@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { SimpleGrid } from "@chakra-ui/react";
 import axios from "axios";
 import { HeroContext } from "../contexts/HeroContext";
@@ -47,11 +48,13 @@ const HeroesGrid = () => {
           } = character;
 
           return (
-            <Card
-              key={id}
-              name={name}
-              image={path + "/portrait_incredible." + extension}
-            />
+            <NavLink to={`/${id}`}>
+              <Card
+                key={id}
+                name={name}
+                image={path + "/portrait_incredible." + extension}
+              />
+            </NavLink>
           );
         })}
     </SimpleGrid>
