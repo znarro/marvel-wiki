@@ -16,7 +16,7 @@ const HeroesGrid = () => {
       const BASE_URL = "https://gateway.marvel.com/v1/public/";
       const API_KEY = "fadc172f68445faee5eaabcc6a9d88d2";
       const HASH = "d05c803f568d39789062fd46f7a70134";
-      const LIMIT = 40;
+      const LIMIT = 100;
       let url = `${BASE_URL}characters?ts=1&apikey=${API_KEY}&hash=${HASH}`;
 
       url += query ? `&name=${query}` : `&limit=${LIMIT}`;
