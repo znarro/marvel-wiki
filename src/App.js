@@ -7,18 +7,18 @@ import HeroDetail from "./pages/HeroDetail/HeroDetail";
 function App() {
   return (
     <>
-      <Header />
-
       <Router>
+        <Header />
+
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
           <Route path="/:id" children={<HeroDetail />} />
         </Switch>
-      </Router>
 
-      <Footer />
+        <Footer />
+      </Router>
     </>
   );
 }

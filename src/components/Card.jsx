@@ -12,7 +12,7 @@ const Card = ({ name, image }) => {
       borderWidth="1px"
     >
       <Image borderRadius="md" src={image} alt={name} />
-      <Heading mt={2} as="h2" size="md">
+      <Heading mt={2} as="h2" size="md" textStyle="h2">
         {name}
       </Heading>
     </Flex>

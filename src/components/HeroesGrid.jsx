@@ -48,9 +48,8 @@ const HeroesGrid = () => {
           } = character;
 
           return (
-            <NavLink to={`/${id}`}>
+            <NavLink key={id} to={`/${id}`}>
               <Card
-                key={id}
                 name={name}
                 image={path + "/portrait_incredible." + extension}
               />

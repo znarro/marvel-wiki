@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { SimpleGrid } from "@chakra-ui/react";
+import { SimpleGrid, Link } from "@chakra-ui/react";
 import axios from "axios";
 import Card from "../../components/Card";
 
@@ -19,7 +19,7 @@ const HeroDetail = () => {
       const URL = `${BASE_URL}characters/${id}/comics?ts=1&apikey=${API_KEY}&hash=${HASH}`;
 
       const result = await axios(URL);
-      //   console.log(result.data.data.results);
+      console.log(result.data.data.results);
       setComics(result.data.data.results);
     }
 
@@ -27,19 +27,20 @@ const HeroDetail = () => {
   }, [id]);
 
   return (
-    <SimpleGrid minChildWidth="200px" spacing="40px" p="10">
+    <SimpleGrid mt="120px" minChildWidth="200px" spacing="40px" p="10">
       {comics
         .filter((item) => item.images.length > 0)
         .map((comic) => {
-          const { id, images, title } = comic;
+          const { id, images, title, urls } = comic;
           const { path, extension } = images[0];
 
           return (
-            <Card
-              key={id}
-              name={title}
-              image={path + "/portrait_incredible." + extension}
-            />
+            <Link key={id} href={`${urls[0].url}`} isExternal>
+              <Card
+                name={title}
+                image={path + "/portrait_incredible." + extension}
+              />
+            </Link>
           );
         })}
     </SimpleGrid>
