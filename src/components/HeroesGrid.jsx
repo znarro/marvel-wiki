@@ -6,46 +6,40 @@ import { HeroContext } from "../contexts/HeroContext";
 import Card from "./Card";
 
 const HeroesGrid = () => {
-  const [hero] = useContext(HeroContext);
-  const [characters, setCharacters] = useState([]);
+  const [query] = useContext(HeroContext);
+  const [heroes, setHeroes] = useState([]);
 
   useEffect(() => {
     const BASE_URL = "https://gateway.marvel.com/v1/public/";
     const API_KEY = "fadc172f68445faee5eaabcc6a9d88d2";
     const HASH = "d05c803f568d39789062fd46f7a70134";
-    const URL = `${BASE_URL}characters?ts=1&apikey=${API_KEY}&hash=${HASH}`;
+    const LIMIT = 40;
+    let url = `${BASE_URL}characters?ts=1&apikey=${API_KEY}&hash=${HASH}`;
 
-    async function getCharacters() {
-      const LIMIT = 40;
+    async function getHeroes() {
+      url += query ? `&name=${query}` : `&limit=${LIMIT}`;
+      const result = await axios(url);
 
-      const result = await axios(URL + `&limit=${LIMIT}`);
-      // console.log(result.data.data.results);
-      setCharacters(result.data.data.results);
+      setHeroes(result.data.data.results);
     }
 
-    async function getHero() {
-      const result = await axios(URL + `&name=${hero}`);
-
-      setCharacters(result.data.data.results);
-    }
-
-    hero ? getHero() : getCharacters();
-  }, [hero]);
+    getHeroes();
+  }, [query]);
 
   return (
-    <SimpleGrid minChildWidth="200px" spacing="40px" p="10">
-      {characters
+    <SimpleGrid minChildWidth="200px" spacing="40px" px={10} pt={30} pb={100}>
+      {heroes
         .filter(
           (item) =>
             item.thumbnail.path !==
             "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
         )
-        .map((character) => {
+        .map((heroe) => {
           const {
             id,
             name,
             thumbnail: { path, extension },
-          } = character;
+          } = heroe;
 
           return (
             <NavLink key={id} to={`/${id}`}>

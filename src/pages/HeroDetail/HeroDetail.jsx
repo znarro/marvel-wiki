@@ -29,7 +29,14 @@ const HeroDetail = () => {
   }, [id]);
 
   return (
-    <SimpleGrid mt="120px" minChildWidth="200px" spacing="40px" p="10">
+    <SimpleGrid
+      mt="100px"
+      minChildWidth="200px"
+      spacing="40px"
+      px={10}
+      pt={30}
+      pb={100}
+    >
       {comics
         .filter((item) => item.images.length > 0)
         .map((comic) => {

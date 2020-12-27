@@ -3,8 +3,8 @@ import React, { createContext, useState } from "react";
 const HeroContext = createContext();
 
 const HeroContextProvider = (props) => {
-  const [hero, setHero] = useState("");
-  const value = [hero, setHero];
+  const [query, setQuery] = useState("");
+  const value = [query, setQuery];
 
   return <HeroContext.Provider value={value} {...props} />;
 };
