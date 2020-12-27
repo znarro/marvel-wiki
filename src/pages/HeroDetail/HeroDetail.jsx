@@ -12,6 +12,8 @@ const HeroDetail = () => {
   const [comics, setComics] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     async function getComics() {
       const BASE_URL = "https://gateway.marvel.com/v1/public/";
       const API_KEY = "fadc172f68445faee5eaabcc6a9d88d2";
@@ -19,7 +21,7 @@ const HeroDetail = () => {
       const URL = `${BASE_URL}characters/${id}/comics?ts=1&apikey=${API_KEY}&hash=${HASH}`;
 
       const result = await axios(URL);
-      console.log(result.data.data.results);
+      // console.log(result.data.data.results);
       setComics(result.data.data.results);
     }
 
