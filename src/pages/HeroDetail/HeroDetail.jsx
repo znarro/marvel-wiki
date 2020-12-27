@@ -47,10 +47,10 @@ const HeroDetail = () => {
         bgSize="cover"
         bgPos="center center"
       >
-        <Heading size="3xl" color="white" textShadow="0px 0px 5px #000">
+        <Heading textStyle="h2" color="white" textShadow="0px 0px 5px #000">
           {hero[0].name}
         </Heading>
-        <Text fontSize="xl" color="white" textShadow="0px 0px 10px #000">
+        <Text textStyle="p" color="white" textShadow="0px 0px 10px #000">
           {hero[0].description}
         </Text>
       </Flex>

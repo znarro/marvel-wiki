@@ -21,11 +21,21 @@ const theme = extendTheme({
       fontWeight: "bold",
       fontFamily: "'Bangers', sans-serif",
     },
-    h2: {
+    h3: {
       fontSize: "24px",
       fontWeight: "semibold",
       lineHeight: "110%",
       fontFamily: "'Bangers', sans-serif",
+    },
+    h2: {
+      fontSize: ["2rem", "3rem", "4rem"],
+      fontWeight: "semibold",
+      lineHeight: "110%",
+    },
+    p: {
+      fontSize: ["1rem", "1.2rem", "1.5rem"],
+      fontWeight: "semibold",
+      lineHeight: "110%",
     },
     input: {
       fontSize: "16px",

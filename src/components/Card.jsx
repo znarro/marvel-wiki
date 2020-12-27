@@ -14,7 +14,7 @@ const Card = ({ name, image }) => {
       _hover={{ boxShadow: "10px 5px 5px red" }}
     >
       <Image borderRadius="md" src={image} alt={name} />
-      <Heading mt={2} as="h2" size="md" textStyle="h2">
+      <Heading mt={2} as="h2" size="md" textStyle="h3">
         {name}
       </Heading>
     </Flex>
