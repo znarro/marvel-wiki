@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { SimpleGrid, Link } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid, Link, Heading, Text } from "@chakra-ui/react";
 import axios from "axios";
 import Card from "../../components/Card";
+import { HeroContext } from "../../contexts/HeroContext";
 
 const HeroDetail = () => {
   // We can use the `useParams` hook here to access
@@ -10,6 +11,7 @@ const HeroDetail = () => {
   let { id } = useParams();
 
   const [comics, setComics] = useState([]);
+  const [hero] = useContext(HeroContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,7 +23,7 @@ const HeroDetail = () => {
       const URL = `${BASE_URL}characters/${id}/comics?ts=1&apikey=${API_KEY}&hash=${HASH}`;
 
       const result = await axios(URL);
-      // console.log(result.data.data.results);
+
       setComics(result.data.data.results);
     }
 
@@ -29,23 +31,47 @@ const HeroDetail = () => {
   }, [id]);
 
   return (
-    <SimpleGrid mt="120px" minChildWidth="200px" spacing="40px" p="10">
-      {comics
-        .filter((item) => item.images.length > 0)
-        .map((comic) => {
-          const { id, images, title, urls } = comic;
-          const { path, extension } = images[0];
+    <Box as="main" mt="100px" px={10} pt={30} pb={100}>
+      <Flex
+        as="article"
+        direction="column"
+        justify="flex-end"
+        h={350}
+        p={30}
+        mb={5}
+        borderRadius="5px"
+        bgImage={`url(${
+          hero[0].thumbnail.path + "." + hero[0].thumbnail.extension
+        })`}
+        bgRepeat="no-repeat"
+        bgSize="cover"
+        bgPos="center center"
+      >
+        <Heading size="3xl" color="white" textShadow="0px 0px 5px #000">
+          {hero[0].name}
+        </Heading>
+        <Text fontSize="xl" color="white" textShadow="0px 0px 5px #000">
+          {hero[0].description}
+        </Text>
+      </Flex>
+      <SimpleGrid as="section" minChildWidth="200px" spacing="40px">
+        {comics
+          .filter((item) => item.images.length > 0)
+          .map((comic) => {
+            const { id, images, title, urls } = comic;
+            const { path, extension } = images[0];
 
-          return (
-            <Link key={id} href={`${urls[0].url}`} isExternal>
-              <Card
-                name={title}
-                image={path + "/portrait_incredible." + extension}
-              />
-            </Link>
-          );
-        })}
-    </SimpleGrid>
+            return (
+              <Link key={id} href={`${urls[0].url}`} isExternal>
+                <Card
+                  name={title}
+                  image={path + "/portrait_incredible." + extension}
+                />
+              </Link>
+            );
+          })}
+      </SimpleGrid>
+    </Box>
   );
 };
 

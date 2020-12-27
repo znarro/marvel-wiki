@@ -24,6 +24,7 @@ const Header = () => {
           textStyle="h1"
           color="white"
           textShadow="0px 0px 5px #ff0000"
+          _hover={{ textShadow: "0px 0px 15px #ff000099" }}
         >
           Marvel Heroes Wiki
         </Heading>
