@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
 import axios from "axios";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Search from "../../components/Search";
 import Card from "../../components/Card";
+import { HeroContextProvider } from "../../contexts/HeroContext";
 
 const Home = () => {
   const [characters, setCharacters] = useState([]);
@@ -26,13 +26,13 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <Header />
-      <Box>
-        <Heading as="h1" size="xl" align="center">
-          Heroes
-        </Heading>
-        <SimpleGrid minChildWidth="200px" spacing="40px" p="20">
+    <Box>
+      <Heading as="h1" size="xl" align="center">
+        Heroes
+      </Heading>
+      <HeroContextProvider>
+        <Search />
+        <SimpleGrid minChildWidth="200px" spacing="40px" p="10">
           {characters
             .filter(
               (item) =>
@@ -55,9 +55,8 @@ const Home = () => {
               );
             })}
         </SimpleGrid>
-      </Box>
-      <Footer />
-    </div>
+      </HeroContextProvider>
+    </Box>
   );
 };
 
