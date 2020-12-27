@@ -7,6 +7,7 @@ const Card = ({ name, image }) => {
       direction="column"
       justify="center"
       align="center"
+      bg="white"
       p="5"
       maxW="320px"
       borderWidth="1px"

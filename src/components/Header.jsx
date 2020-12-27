@@ -8,6 +8,7 @@ const Header = () => {
     <Flex
       pos="fixed"
       top="0"
+      zIndex={2}
       w="100%"
       h="100px"
       bgImage={`url(${buildings})`}

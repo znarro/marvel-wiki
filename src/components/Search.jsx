@@ -13,6 +13,9 @@ const Search = () => {
           value={hero}
           onChange={handleChange}
           placeholder="Search"
+          textStyle="input"
+          bg="white"
+          focusBorderColor="#ff0000"
           size="md"
         />
       </Center>
