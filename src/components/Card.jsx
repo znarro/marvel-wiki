@@ -11,6 +11,7 @@ const Card = ({ name, image }) => {
       p="5"
       maxW="320px"
       borderWidth="1px"
+      _hover={{ boxShadow: "10px 5px 5px red" }}
     >
       <Image borderRadius="md" src={image} alt={name} />
       <Heading mt={2} as="h2" size="md" textStyle="h2">

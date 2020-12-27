@@ -15,7 +15,7 @@ const Footer = () => {
     >
       <Stack spacing={3}>
         <Text fontSize="md" align="center">
-          Made with 💪 by Team 6
+          Made with <span>💪</span> by Team 6
         </Text>
         <Text fontSize="sm" align="center">
           Data provided by Marvel. © 2014 Marvel{" "}

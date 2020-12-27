@@ -39,6 +39,7 @@ const HeroDetail = () => {
         h={350}
         p={30}
         mb={5}
+        borderRadius="5px"
         bgImage={`url(${
           hero[0].thumbnail.path + "." + hero[0].thumbnail.extension
         })`}
