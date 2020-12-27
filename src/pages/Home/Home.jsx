@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
+import { QueryContextProvider } from "../../contexts/QueryContext";
 import HeroesGrid from "../../components/HeroesGrid";
 import Search from "../../components/Search";
-import { QueryContextProvider } from "../../contexts/QueryContext";
 
 const Home = () => {
   return (

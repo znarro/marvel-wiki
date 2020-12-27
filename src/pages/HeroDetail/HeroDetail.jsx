@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Box, Flex, SimpleGrid, Link, Heading, Text } from "@chakra-ui/react";
 import axios from "axios";
-import Card from "../../components/Card";
 import { HeroContext } from "../../contexts/HeroContext";
+import Card from "../../components/Card";
 
 const HeroDetail = () => {
   // We can use the `useParams` hook here to access
@@ -50,7 +50,7 @@ const HeroDetail = () => {
         <Heading size="3xl" color="white" textShadow="0px 0px 5px #000">
           {hero[0].name}
         </Heading>
-        <Text fontSize="xl" color="white" textShadow="0px 0px 5px #000">
+        <Text fontSize="xl" color="white" textShadow="0px 0px 10px #000">
           {hero[0].description}
         </Text>
       </Flex>

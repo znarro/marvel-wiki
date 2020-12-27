@@ -7,8 +7,8 @@ import { HeroContext } from "../contexts/HeroContext";
 import Card from "./Card";
 
 const HeroesGrid = () => {
-  const [query] = useContext(QueryContext);
   const [characters, setCharacters] = useState([]);
+  const [query] = useContext(QueryContext);
   const [, setHero] = useContext(HeroContext);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const HeroesGrid = () => {
   }, [query]);
 
   function handleClick(id) {
-    let newHero = characters.filter((heroe) => heroe.id === id);
+    let newHero = characters.filter((character) => character.id === id);
     setHero(newHero);
   }
 
@@ -41,12 +41,12 @@ const HeroesGrid = () => {
             item.thumbnail.path !==
             "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available"
         )
-        .map((heroe) => {
+        .map((character) => {
           const {
             id,
             name,
             thumbnail: { path, extension },
-          } = heroe;
+          } = character;
 
           return (
             <NavLink onClick={() => handleClick(id)} key={id} to={`/${id}`}>
